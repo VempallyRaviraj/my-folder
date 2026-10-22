@@ -5,13 +5,13 @@ read marks
 
 #lt {lessthan}
 
-if [$marks -lt 33]; then
-    echo "pass"
-elif [$marks -lt 50 ]; then 
+if [ $marks -lt 33 ]; then
+    echo "fail"
+elif [ $marks -lt 50 ]; then 
     echo "Third class" 
-elif [$marks -lt 60]; then
+elif [ $marks -lt 60]; then
     echo "second class"
-elif [$marks -lt 75]; then
+elif [ $marks -lt 75 ]; then
      echo "first class"
 else 
     echo "distinction"
