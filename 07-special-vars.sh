@@ -3,3 +3,4 @@
 #special variables ###
 
 echo "All args passed to the script: $@"
+echo "All args passed to the script: $#"
