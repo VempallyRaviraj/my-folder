@@ -1,0 +1,32 @@
+#!/bin/bash
+
+user_id=$(id -u)
+logs_folder="/var/log/my-folder"
+logs_file="${logs_folder}/${0}.log"
+
+if [ $user_id -ne 0 ]; then
+    echo "Please run this script with sudo access.."
+    exit 1
+fi
+
+mkdir -p $logs_folder
+
+echo "script started  executing at ${date +"%F %T"}"
+
+validate(){
+    if [ $1 -ne 0 ]; then
+        echo "${2}..FAILED" | tee -a $logs_file
+        exit 1
+    else
+        echo "${2}..SUCCESS"
+    fi
+}
+
+echo "proceeding...."
+dnf install nginx -y &>> $logs_file
+validate $? "nginx installation"
+
+dnf install mysql -y &>> $logs_file
+validate $? "Mysql installation"
+
+echo "script completed executing at ${date +"%F %T"}"
