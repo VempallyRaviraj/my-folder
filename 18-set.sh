@@ -1,6 +1,6 @@
 #!/bin/bash
 
 set -e
- echo"starting"
+echo"starting"
 ghtfjhvkhbkhfckyhm
 echo "proceeding"
